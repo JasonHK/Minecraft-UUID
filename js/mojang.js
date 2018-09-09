@@ -1,7 +1,7 @@
 "use strict";
 
 function getUserInfo(username) {
-    const baseUrl = "http://cors.io/?https://api.mojang.com/users/profiles/minecraft/";
+    const baseUrl = "https://cors.io/?https://api.mojang.com/users/profiles/minecraft/";
     let requestUrl = baseUrl + username;
 
     var request = new Request(requestUrl, {
