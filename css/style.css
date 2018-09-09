@@ -239,8 +239,12 @@ form#result button#submit {
 }
 
 @media screen and (max-height: 400px) {
+    .main-section {
+        overflow: scroll;
+    }
+
     form#query button#submit {
-        margin-top: -15px;
+        margin-top: 0px;
     }
 
     form#result button#submit {
@@ -252,7 +256,7 @@ form#result button#submit {
     }
 }
 
-@media screen and (max-height: 360px) {
+@media screen and (max-height: 360px) and (min-width: 420px) {
     form .input-field {
         display: inline-block;
         width: 50%;
@@ -286,7 +290,7 @@ form#result button#submit {
     }
 }
 
-@media screen and (max-height: 360px) and (max-width: 520px) {
+@media screen and (max-height: 360px) and (min-width: 420px) and (max-width: 520px) {
     form .input-field {
         width: 45%;
         margin-left: 7%;
@@ -295,5 +299,11 @@ form#result button#submit {
 
     form#query button#submit {
         margin-right: 7%;
+    }
+}
+
+@media screen and (max-height: 360px) and (max-width: 420px) {
+    form#query button#submit {
+        margin-top: 0px;
     }
 }
