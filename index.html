@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>What's my Minecraft UUID?</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/icons.css">
+        <link rel="stylesheet" href="./css/spinner.css">
+        <link rel="stylesheet" href="./css/easter.css">
+    </head>
+    <body>
+        <main id="app">
+            <header id="main" class="main-header">
+                <div class="icon">
+                    <i class="icon-user"></i>
+                </div>
+            </header>
+            <section id="query" class="main-section">
+                <header>
+                    <h1>What's my UUID?</h1>
+                    <p>Check the UUID of your Minecraft username with a click!</p>
+                </header>
+                <form name="query" id="query" class="main-content" action="javascript:querySubmit();" novalidate>
+                    <div class="input-field">
+                        <input name="username" id="username" class="large" type="text" placeholder="USERNAME" minlength="3" maxlength="16" pattern="^([A-Za-z0-9_]){3,16}$" required autofocus>
+                        <p id="message" class="message invalid hidden">&nbsp;</p>
+                    </div>
+                    <button name="submit" id="submit" class="centered large" type="submit">CHECK UUID</button>
+                </form>
+            </section>
+            <section id="loading" class="main-section" hidden>
+                <header>
+                    <h1>Loading...</h1>
+                    <p>Sometimes are worth waiting.</p>
+                </header>
+                <div class="sk-three-bounce main-content">
+                    <div class="sk-child sk-bounce1"></div>
+                    <div class="sk-child sk-bounce2"></div>
+                    <div class="sk-child sk-bounce3"></div>
+                </div>
+            </section>
+            <section id="result" class="main-section" hidden>
+                <header>
+                    <h1>Gotcha!</h1>
+                    <p>Click the text below to copy your UUID.</p>
+                </header>
+                <form name="result" id="result" class="main-content" action="javascript:returnHome();" novalidate>
+                    <input name="uuid" id="uuid" class="small" type="text" placeholder="UUID" value="" readonly>
+                    <button name="copy" id="copy" class="small" type="button" data-clipboard-target="input#uuid">COPY</button>
+                    <button name="submit" id="submit" class="centered small" type="submit">CHECK ANOTHER USERNAME</button>
+                </form>
+            </section>
+            <section id="error" class="main-section" hidden>
+                <header>
+                    <h1>Oops!</h1>
+                    <p>Something went wrong...</p>
+                </header>
+                <form name="error" id="error" class="main-content" action="javascript:returnHome();" novalidate>
+                    <p id="error">
+                        &nbsp;
+                    </p>
+                    <button name="submit" id="submit" class="centered large" type="submit">TRY AGAIN</button>
+                </form>
+            </section>
+        </main>
+
+        <script type="application/javascript" src="./js/clipboard.js"></script>
+        <script type="application/javascript" src="./js/mojang.js"></script>
+        <script type="application/javascript" src="./js/core.js"></script>
+        <script type="application/javascript" src="./js/index.js"></script>
+    </body>
+</html> 
