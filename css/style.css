@@ -214,7 +214,7 @@ form#result button#submit {
     font-size: 0.75em;
 }
 
-@media screen and (max-width: 650px), (max-height: 500px) {
+@media screen and (max-width: 620px), (max-height: 500px) {
     body {
         height: auto;
         min-height: 100vh;
