@@ -108,3 +108,7 @@ window.addEventListener("DOMContentLoaded", function(event) {
         uuidResult.select();
     });
 }, false);
+
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/js/worker.js");
+}
