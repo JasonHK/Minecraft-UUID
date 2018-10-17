@@ -28,9 +28,17 @@ function precache() {
         return cache.addAll([
             "/",
             "/index.html",
-            "/css",
-            "/font",
-            "/js"
+            "/manifest.json",
+            "/css/index.css",
+            "/css/spinner.css",
+            "/font/icons.eot",
+            "/font/icons.svg",
+            "/font/icons.ttf",
+            "/font/icons.woff",
+            "/font/icons.woff2",
+            "/js/clipboard.js",
+            "/js/index.js",
+            "/js/mojang.js"
         ]);
     });
 }
