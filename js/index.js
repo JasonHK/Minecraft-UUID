@@ -110,5 +110,5 @@ window.addEventListener("DOMContentLoaded", function(event) {
 }, false);
 
 if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/js/worker.js");
+    navigator.serviceWorker.register("/js/worker.js", {scope: "/"});
 }
