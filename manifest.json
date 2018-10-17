@@ -1,0 +1,9 @@
+{
+    "name": "What's my Minecraft UUID?",
+    "short_name": "Minecraft UUID",
+    "theme_color": "#2196f3",
+    "background_color": "#2196f3",
+    "display": "standalone",
+    "scope": "https://mc-uuid.jasonhk.net",
+    "start_url": "/"
+}
