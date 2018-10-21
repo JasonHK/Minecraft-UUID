@@ -29,6 +29,7 @@ function precache() {
             "/",
             "/index.html",
             "/manifest.json",
+            "/worker.js",
             "/css/index.css",
             "/css/spinner.css",
             "/font/icons.eot",
