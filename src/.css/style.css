@@ -38,7 +38,7 @@ main {
     background-color: white;
 }
 
-.main-header {
+.appbar {
     position: relative;
     top: 0;
     left: 0;
@@ -48,7 +48,7 @@ main {
     background-color: #16222a;
 }
 
-.main-header > .icon {
+.appbar > .icon {
     position: relative;
     left: 0;
     right: 0;
@@ -60,7 +60,7 @@ main {
     background-color: white;
 }
 
-.main-header > .icon > i::before {
+.appbar > .icon > i::before {
     position: relative;
     left: 0;
     right: 0;
@@ -73,7 +73,7 @@ main {
     text-align: center;
 }
 
-.main-section {
+.container {
     position: relative;
     top: 10px;
     left: 0;
@@ -82,29 +82,29 @@ main {
     height: calc(100% - 135px);
 }
 
-.main-section > header {
+.container > header {
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.main-section h1, .main-section p {
+.container h1, .container p {
     text-align: center;
 }
 
-.main-section h1 {
+.container h1 {
     font-size: 2.125em;
     padding-bottom: 5px;
 }
 
-.main-section p {
+.container p {
     font-size: 1.125em;
 }
 
-.main-section > .main-content {
+.container > .content {
     padding-top: 20px;
 }
 
-.main-section#loading > .main-content {
+.container#loading > .content {
     display: block;
 }
 
@@ -242,7 +242,7 @@ form#result button#submit {
 }
 
 @media screen and (max-height: 400px) {
-    .main-section {
+    .container {
         overflow: scroll;
     }
 

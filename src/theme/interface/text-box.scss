@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+$text-box-types: ("date", "datetime-local", "email", "hidden", "month", "number", "password", "search", "tel", "text", "time", "url", "week");
+
+@each $type in $text-box-types {
+    
+    input[type=#{$type}] {
+        border: none;
+        border-bottom: 2px solid #16222a;
+        padding: 0 5px;
+        width: 100%;
+        font-family: 'Courier New', Courier, monospace;
+        letter-spacing: 0.1em;
+
+        &:focus {
+            outline: 0;
+        }
+
+        .invalid & , &.invalid {
+            border-bottom: 2px solid rgb(255, 0, 0);
+        }
+
+        &.large {
+            padding: 15px 5px;
+            font-size: 1.375em;
+        }
+
+        &.small {
+            padding: 10px 5px;
+            font-size: 1.125em;
+        }
+    }
+}
