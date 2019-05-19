@@ -1,0 +1,32 @@
+{
+  "icons": [
+    {
+      "src": "icon/icon_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icon/icon_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon/icon_32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "icon/icon_16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+  ],
+  "name": "What's my Minecraft UUID?",
+  "short_name": "Minecraft UUID",
+  "orientation": "any",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "Check the UUID of your Minecraft username with a click of a button!",
+  "theme_color": "#16222A",
+  "background_color": "#16222A"
+}
