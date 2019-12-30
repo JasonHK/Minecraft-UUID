@@ -1,0 +1,29 @@
+os: linux
+dist: bionic
+
+language: node_js
+node_js:
+    - 13
+
+# before_script:
+#     - npm install -g codecov
+
+script:
+    - npm run test
+
+# after_success:
+#     - npx codecov
+
+# before_deploy:
+#     - npm run build:deploy
+
+# deploy:
+#     edge: true
+#     provider: pages
+#     token: $GITHUB_DEPLOY_TOKEN
+#     fqdn: 2047.jasonhk.app
+#     local_dir: dist
+#     cleanup: false
+#     on:
+#         node_js: 13
+#         branch: master
