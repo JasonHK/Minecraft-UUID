@@ -1,17 +1,27 @@
 {
   "name": "minecraft-uuid",
-  "version": "1.0.0",
   "description": "Check the UUID of your Minecraft username with a click of a button!",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build:development",
-    "build:development": "webpack --mode=development",
-    "build:production": "npm run build:clean && webpack --mode=production",
-    "build:clean": "rm dist --force --recursive"
+  "private": true,
+  "version": "1.0.0",
+  "license": "GPL-3.0",
+  "author": "Jason Kwok <nodejs@jasonhk.email> (https://jasonhk.net)",
+  "homepage": "https://github.com/JasonHK/Minecraft-UUID#readme",
+  "keywords": [
+    "minecraft"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JasonHK/Minecraft-UUID.git"
   },
-  "author": "",
-  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JasonHK/Minecraft-UUID/issues"
+  },
+  "scripts": {
+    "start:dev": "npx webpack-dev-server --config \"configs/webpack.config.ts\"",
+    "build:dev": "npm run clean:build && npx webpack --config \"configs/webpack.config.ts\" --mode development",
+    "build:prod": "npm run clean:build && npx webpack --config \"configs/webpack.config.ts\" --mode production",
+    "clean:build": "npx rimraf -- ./dist"
+  },
   "dependencies": {
     "axios": "^0.18.1",
     "classnames": "^2.2.6",
@@ -27,29 +37,32 @@
     "spinkit": "^1.2.5"
   },
   "devDependencies": {
-    "@types/classnames": "^2.2.7",
-    "@types/clipboard": "^2.0.1",
-    "@types/copy-webpack-plugin": "^5.0.0",
-    "@types/file-loader": "^4.2.0",
-    "@types/history": "^4.7.2",
-    "@types/mini-css-extract-plugin": "^0.9.0",
-    "@types/node": "^13.1.2",
-    "@types/terser-webpack-plugin": "^2.2.0",
-    "@types/webpack": "^4.41.1",
-    "@types/webpack-bundle-analyzer": "^2.13.3",
-    "@types/webpack-dev-server": "^3.9.0",
-    "copy-webpack-plugin": "^5.1.1",
-    "css-loader": "^2.1.1",
-    "file-loader": "^3.0.1",
-    "mini-css-extract-plugin": "^0.6.0",
-    "node-sass": "^4.13.0",
-    "sass-loader": "^7.1.0",
-    "source-map-loader": "^0.2.4",
-    "ts-loader": "^5.3.3",
-    "typescript": "^3.4.4",
-    "webpack": "^4.30.0",
-    "webpack-bundle-analyzer": "^3.3.2",
-    "webpack-cli": "^3.3.1",
-    "webpack-pwa-manifest": "^4.0.0"
+    "@types/classnames": "2.x",
+    "@types/clipboard": "2.x",
+    "@types/copy-webpack-plugin": "5.x",
+    "@types/file-loader": "4.x",
+    "@types/history": "4.x",
+    "@types/mini-css-extract-plugin": "0.9.x",
+    "@types/node": "13.x",
+    "@types/terser-webpack-plugin": "2.x",
+    "@types/webpack": "4.x",
+    "@types/webpack-bundle-analyzer": "2.x",
+    "@types/webpack-dev-server": "3.x",
+    "copy-webpack-plugin": "5.x",
+    "css-loader": "3.x",
+    "file-loader": "5.x",
+    "mini-css-extract-plugin": "0.9.x",
+    "node-sass": "4.x",
+    "rimraf": "3.x",
+    "sass-loader": "8.x",
+    "source-map-loader": "0.2.x",
+    "ts-loader": "6.x",
+    "ts-node": "8.x",
+    "typescript": "3.x",
+    "webpack": "4.x",
+    "webpack-bundle-analyzer": "3.x",
+    "webpack-cli": "3.x",
+    "webpack-dev-server": "3.x",
+    "webpack-pwa-manifest": "4.x"
   }
 }

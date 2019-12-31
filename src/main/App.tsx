@@ -12,14 +12,16 @@ import QueryRoute from "./routes/Query";
 /**
  * The main entry of the application.
  */
-export class App extends Component<App.Properties, App.States> {
+export class App extends Component<App.Properties, App.States>
+{
+    private readonly _history: History;
+    private _route: App.RouteStatus;
 
-    private readonly history: History;
+    get header() { return this.state.header; }
+    set header(header: AppBar.Properties) { this.setState({ header: header }); }
 
-    private route: App.RouteStatus;
-
-    constructor(props?: App.Properties, context?: any) {
-
+    public constructor(props?: App.Properties, context?: any)
+    {
         super(props, context);
 
         this.state = {
@@ -28,7 +30,7 @@ export class App extends Component<App.Properties, App.States> {
             }
         };
 
-        this.history = createHashHistory({
+        this._history = createHashHistory({
             hashType: "hashbang"
         });
 
@@ -37,32 +39,29 @@ export class App extends Component<App.Properties, App.States> {
         this.onRouteChange  = this.onRouteChange.bind(this);
     }
 
-    get header() { return this.state.header; }
-    set header(header: AppBar.Properties) { this.setState({ header: header }); }
-
-    private onChangeHeader(icon: string): void {
-
+    private onChangeHeader(icon: string): void
+    {
         if (icon !== this.header.icon) {
             this.header = Object.assign({}, this.header, { icon: icon } as AppBar.Properties);
         }
     }
 
-    private onRequestBack(forced?: boolean): boolean {
-
+    private onRequestBack(forced?: boolean): boolean
+    {
         forced = forced || false;
 
-        if (forced || (typeof this.route.previous !== "undefined")) {
-            this.history.goBack();
+        if (forced || (typeof this._route.previous !== "undefined")) {
+            this._history.goBack();
             return true;
         } else {
             return false;
         }
     }
 
-    private onRouteChange(args: RouterOnChangeArgs): void {
-
+    private onRouteChange(args: RouterOnChangeArgs): void
+    {
         const { current, previous, url } = args;
-        this.route = {
+        this._route = {
             _event: args,
             current: {
                 path: (current as VNode<RoutableProps>).attributes.path,
@@ -72,13 +71,13 @@ export class App extends Component<App.Properties, App.States> {
         };
     }
 
-    public render(props?: RenderableProps<App.Properties>, state?: Readonly<App.States>, context?: any): ComponentChild {
-        
+    public render(props?: RenderableProps<App.Properties>, state?: Readonly<App.States>, context?: any): ComponentChild
+    {
         return (
             <main>
                 <AppBar { ...state.header } />
 
-                <Router history={ this.history } onChange={ this.onRouteChange }>
+                <Router history={ this._history } onChange={ this.onRouteChange }>
                     <HomeRoute path="/" default={ true } changeHeader={ this.onChangeHeader } />
                     <QueryRoute path="/query/:username" changeHeader={ this.onChangeHeader } requestBack={ this.onRequestBack } />
                 </Router>
@@ -87,24 +86,27 @@ export class App extends Component<App.Properties, App.States> {
     }
 }
 
-export namespace App {
+export namespace App
+{
+    export interface Properties {}
 
-    export interface Properties {
-    }
-
-    export interface States {
+    export interface States
+    {
         header: AppBar.Properties
     }
 
-    export interface ChangeHeader {
+    export interface ChangeHeader
+    {
         (icon: string): void;
     }
 
-    export interface RequestBack {
+    export interface RequestBack
+    {
         (forced?: boolean): boolean;
     }
 
-    export interface RouteStatus {
+    export interface RouteStatus
+    {
         _event: RouterOnChangeArgs;
         current: {
             path: string;
@@ -116,12 +118,9 @@ export namespace App {
 
 render(<App />, document.body, document.querySelector("main"));
 
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./worker.js", { scope: "./" })
-            .then(registration => console.info("Service worker registered successfully: ", registration))
-            .catch(error => console.error("Service worker registration failed: ", error));
-    });
+if (Reflect.has(navigator, "serviceWorker"))
+{
+    // TODO: Add workbox-window
 }
 
 export default App;
