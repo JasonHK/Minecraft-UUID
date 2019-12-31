@@ -9,8 +9,8 @@ import { MigrateProperties } from "../types/Preact";
 /**
  * The `AppBar` component.
  */
-export function AppBar(props?: RenderableProps<AppBar.Properties>, context?: any): VNode<AppBar.Properties> {
-        
+export function AppBar(props?: RenderableProps<AppBar.Properties>, context?: any): VNode<AppBar.Properties>
+{
     const { icon, ...attributes } = props;
     return (
         <header class="appbar" { ...attributes }>
@@ -21,13 +21,15 @@ export function AppBar(props?: RenderableProps<AppBar.Properties>, context?: any
     );
 }
 
-export namespace AppBar {
-
+export namespace AppBar
+{
     export type Properties = MigrateProperties<BaseProperties, Permit<JSXAttributes, IncludedAttributes>>;
 
-    interface BaseProperties {
+    interface BaseProperties
+    {
         icon: string;
     }
+
     type IncludedAttributes = "id";
 }
 

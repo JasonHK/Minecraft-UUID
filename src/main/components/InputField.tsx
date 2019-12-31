@@ -10,8 +10,8 @@ import { MigrateProperties } from "../types/Preact";
 /**
  * The `InputField` component.
  */
-export function InputField(props?: RenderableProps<InputField.Properties>, context?: any): VNode<InputField.Properties> {
-        
+export function InputField(props?: RenderableProps<InputField.Properties>, context?: any): VNode<InputField.Properties>
+{
     const { children, invalid, message, visible, ...attributes } = props;
     return (
         <div class={ ClassNames("field", { "invalid": invalid }) }>
@@ -21,15 +21,17 @@ export function InputField(props?: RenderableProps<InputField.Properties>, conte
     );
 }
 
-export namespace InputField {
-
+export namespace InputField
+{
     export type Properties = MigrateProperties<BaseProperties, Permit<JSXAttributes, IncludedAttributes>>;
 
-    interface BaseProperties {
+    interface BaseProperties
+    {
         invalid?: boolean;
         message?: string;
         visible?: boolean;
     }
+
     type IncludedAttributes = "id";
 }
 

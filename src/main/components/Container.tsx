@@ -11,8 +11,8 @@ import { MigrateProperties } from "../types/Preact";
 /**
  * The `Container` component.
  */
-export function Container(props?: RenderableProps<Container.Properties>, context?: any): VNode<Container.Properties> {
-        
+export function Container(props?: RenderableProps<Container.Properties>, context?: any): VNode<Container.Properties>
+{
     const { children, subtitle, title, ...attributes } = props;
     return (
         <section class="container" { ...attributes }>
@@ -25,14 +25,16 @@ export function Container(props?: RenderableProps<Container.Properties>, context
     );
 }
 
-export namespace Container {
-
+export namespace Container
+{
     export type Properties = MigrateProperties<BaseProperties, Permit<JSXAttributes, IncludedAttributes>>;
 
-    interface BaseProperties {
+    interface BaseProperties
+    {
+        title: string;
         subtitle: string;
-        title:    string;
     }
+
     type IncludedAttributes = "id";
 }
 

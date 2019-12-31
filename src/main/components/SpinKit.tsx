@@ -10,8 +10,8 @@ import { MigrateProperties } from "../types/Preact";
 /**
  * The `SpinKit` component.
  */
-export function SpinKit(props?: RenderableProps<SpinKit.Properties>, context?: any): VNode<SpinKit.Properties> {
-        
+export function SpinKit(props?: RenderableProps<SpinKit.Properties>, context?: any): VNode<SpinKit.Properties>
+{
     const { type, ...attributes } = props;
     
     return (
@@ -23,9 +23,10 @@ export function SpinKit(props?: RenderableProps<SpinKit.Properties>, context?: a
     )
 }
 
-export namespace SpinKit {
-
-    export enum Type {
+export namespace SpinKit
+{
+    export enum Type
+    {
         RotatingPlane  = "rotating-plane",
         DoubleBounce   = "double-bounce",
         Wave           = "wave",
@@ -41,9 +42,11 @@ export namespace SpinKit {
 
     export type Properties = MigrateProperties<BaseProperties, Permit<JSXAttributes, IncludedAttributes>>;
 
-    interface BaseProperties {
+    interface BaseProperties
+    {
         type: Type;
     }
+    
     type IncludedAttributes = "id";
 }
 

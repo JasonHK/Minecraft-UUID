@@ -10,28 +10,31 @@ import { MigrateProperties } from "../types/Preact";
 /**
  * The `TextBox` component.
  */
-export function TextBox(props?: RenderableProps<TextBox.Properties>, context?: any): VNode<TextBox.Properties> {
-        
+export function TextBox(props?: RenderableProps<TextBox.Properties>, context?: any): VNode<TextBox.Properties>
+{
     const { align, inline, size, type, ...attributes } = props;
     return (
         <input type={ type } class={ ClassNames(align, size) } { ...attributes } />
     );
 }
 
-export namespace TextBox {
-
-    export enum Alignment {
+export namespace TextBox
+{
+    export enum Alignment
+    {
         Left   = "left",
         Center = "center",
         Right  = "right",
     }
 
-    export enum Size {
+    export enum Size
+    {
         Large = "large",
         Small = "small"
     }
 
-    export enum Type {
+    export enum Type
+    {
         Date          = "date",
         DateTimeLocal = "datetime-local",
         Email         = "email",
@@ -49,12 +52,14 @@ export namespace TextBox {
 
     export type Properties = MigrateProperties<BaseProperties, Omit<JSXInputAttributes, ExcludedAttributes>>;
 
-    interface BaseProperties {
+    interface BaseProperties
+    {
         align?:  Alignment;
         inline?: boolean;
         size:    Size;
         type:    Type;
     }
+    
     type ExcludedAttributes = "class";
 }
 
