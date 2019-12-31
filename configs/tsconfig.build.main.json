@@ -1,0 +1,15 @@
+{
+    "extends": "./tsconfig.build.json",
+    "compilerOptions": {
+        "lib": [
+            "DOM",
+        ],
+    },
+    "files": [
+    ],
+    "include": [
+        "../src/main/**/*.ts",
+        "../src/shared/**/*.ts",
+    ],
+    "exclude": [],
+}
