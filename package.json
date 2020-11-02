@@ -15,7 +15,7 @@
     "url": "git+https://github.com/JasonHK/Minecraft-UUID.git"
   },
   "license": "GPL-3.0",
-  "author": "Jason Kwok <nodejs@jasonhk.email> (https://jasonhk.net)",
+  "author": "Jason Kwok <foss@jasonhk.email> (https://jasonhk.net)",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
