@@ -4,7 +4,7 @@ import Axios, { AxiosError, AxiosInstance } from "axios";
 
 function getCORSProxy(url: URL): URL {
 
-    return new URL(`https://cors.io/?${ url.href }`);
+    return new URL(`https://cors-anywhere.herokuapp.com/${ url.href }`);
 }
 
 export class MojangAPI {
