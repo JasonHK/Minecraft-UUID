@@ -18,13 +18,13 @@ import { MigrateProperties } from "../types/Preact";
 /**
  * The `QueryRoute` routine.
  */
-export class QueryRoute extends Component<QueryRoute.Properties, QueryRoute.States> {
-    
+export class QueryRoute extends Component<QueryRoute.Properties, QueryRoute.States>
+{
     private readonly database: Database<QueryRoute.UserInfo>;
     private readonly mojang:   MojangAPI;
 
-    constructor(props?: QueryRoute.Properties, context?: any) {
-        
+    constructor(props?: QueryRoute.Properties, context?: any)
+    {
         super(props, context);
 
         this.state = {
@@ -47,30 +47,31 @@ export class QueryRoute extends Component<QueryRoute.Properties, QueryRoute.Stat
     get status() { return this.state.status; }
     set status(status: QueryRoute.Status) { this.setState({ status: status }); }
 
-    private isExpired(timestamp: number) {
-
+    private isExpired(timestamp: number)
+    {
         return Moment().isAfter(Moment.unix(timestamp));
     }
 
-    private isNotchUUID(uuid: string): boolean {
-
+    private isNotchUUID(uuid: string): boolean
+    {
         return (uuid.toLowerCase() === "069a79f444e94726a5befca90e38aaf5");
     }
 
-    private changeHeader(icon: string): void {
-
-        if ("changeHeader" in this.props && (typeof this.props.changeHeader === "function")) {
+    private changeHeader(icon: string): void
+    {
+        if ("changeHeader" in this.props && (typeof this.props.changeHeader === "function"))
+        {
             this.props.changeHeader(icon);
         }
     }
 
-    private getExpiration(): number {
-
+    private getExpiration(): number
+    {
         return Moment().add(1, "hours").unix();
     }
 
-    private handleError(error: MojangAPI.APIError): QueryRoute.ErrorDisplay {
-
+    private handleError(error: MojangAPI.APIError): QueryRoute.ErrorDisplay
+    {
         switch (error.type) {
             case MojangAPI.APIError.ErrorType.NetworkError:
                 return {
@@ -93,21 +94,21 @@ export class QueryRoute extends Component<QueryRoute.Properties, QueryRoute.Stat
         }
     }
 
-    private resolveQuery(profile: MojangAPI.UserInfoReturn): void {
-
+    private resolveQuery(profile: MojangAPI.UserInfoReturn): void
+    {
         this.profile = profile;
         this.status = QueryRoute.Status.Resolved;
     }
 
-    private onReturn(): void {
-
+    private onReturn(): void
+    {
         if (("requestBack" in this.props) && (typeof this.props.requestBack === "function")) {
             if (!this.props.requestBack()) { route("/", true); }
         } else { route("/", false); }
     }
 
-    public componentDidMount(): void {
-
+    public componentDidMount(): void
+    {
         this.database.get(this.props.username.toLowerCase()).then((record) => {
             if ((record === null) || this.isExpired(record.expire)) {
                 this.mojang.getUserInfo(this.props.username).then((profile) => {
@@ -128,8 +129,8 @@ export class QueryRoute extends Component<QueryRoute.Properties, QueryRoute.Stat
         });
     }
 
-    public render(props?: RenderableProps<QueryRoute.Properties>, state?: Readonly<QueryRoute.States>, context?: any): ComponentChild {
-
+    public render(props?: RenderableProps<QueryRoute.Properties>, state?: Readonly<QueryRoute.States>, context?: any): ComponentChild
+    {
         const { username, ...attributes } = props;
         
         switch (state.status) {
@@ -154,9 +155,10 @@ export class QueryRoute extends Component<QueryRoute.Properties, QueryRoute.Stat
     }
 }
 
-export namespace QueryRoute {
-
-    export enum Status {
+export namespace QueryRoute
+{
+    export enum Status
+    {
         Loading,
         Resolved,
         Error
@@ -164,30 +166,35 @@ export namespace QueryRoute {
 
     export type Properties = MigrateProperties<BaseProperties, RoutableProps>;
 
-    export interface States {
+    export interface States
+    {
         error?:   MojangAPI.APIError;
         profile?: MojangAPI.UserInfoReturn;
         status:   Status;
     }
 
-    export interface UserInfo {
+    export interface UserInfo
+    {
         [username: string]: {
             expire:  number;
             profile: MojangAPI.UserInfoReturn;
         };
     }
 
-    export interface ErrorDisplay {
+    export interface ErrorDisplay
+    {
         reason?:  string;
         message?: ComponentChildren;
     }
 
-    interface BaseProperties {
+    interface BaseProperties
+    {
         username?:     string;
         changeHeader?: App.ChangeHeader;
         requestBack?:  App.RequestBack;
         onViewChange?: () => void;
     }
+    
     type IncludedAttributes = "id";
 }
 

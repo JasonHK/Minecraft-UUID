@@ -12,16 +12,17 @@ import { MigrateProperties } from "../types/Preact";
 /**
  * The `HomeRoute` routine.
  */
-export function HomeRoute(props?: RenderableProps<HomeRoute.Properties>, context?: any): VNode<HomeRoute.Properties> {
-    
-    function onQuery(query: QueryView.QueryData) {
-
+export function HomeRoute(props?: RenderableProps<HomeRoute.Properties>, context?: any): VNode<HomeRoute.Properties>
+{
+    function onQuery(query: QueryView.QueryData)
+    {
         route(`/query/${ query.username }`);
     }
 
     const { changeHeader, ...attributes } = props;
 
-    if (changeHeader && (typeof changeHeader === "function")) {
+    if (changeHeader && (typeof changeHeader === "function"))
+    {
         changeHeader("icon-user");
     }
 
@@ -30,13 +31,15 @@ export function HomeRoute(props?: RenderableProps<HomeRoute.Properties>, context
     );
 }
 
-export namespace HomeRoute {
-
+export namespace HomeRoute
+{
     export type Properties = MigrateProperties<BaseProperties, RoutableProps>;
 
-    interface BaseProperties {
+    interface BaseProperties
+    {
         changeHeader?: App.ChangeHeader;
     }
+
     type IncludedAttributes = "id";
 }
 
