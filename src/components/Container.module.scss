@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+@import "../theme/theme";
+
+$container--border-radius: 10px;
+$container--padding      : 10px;
+$container--background   : white;
+$container--gap          : 20px;
+
+.root
+{
+    display: flex;
+    height: 100%;
+    min-height: stretch;
+    background: blueviolet;
+    background: linear-gradient(to right, #6100c2, #a100bd);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    > .container
+    {
+        display: flex;
+        border-radius: $container--border-radius;
+        width: 550px;
+        height: 450px;
+        background-color: $container--background;
+        flex-direction: column;
+        gap: $container--gap;
+
+        > .header
+        {
+            display: flex;
+            border-radius: $container--border-radius;
+            padding: $container--padding $container--padding 0;
+            min-height: 125px;
+            background: linear-gradient(to bottom, $primary-color 80px, $container--background 80px);
+            flex-direction: column;
+            align-items: center;
+
+            > .iconContainer
+            {
+                display: flex;
+                margin: 25px auto 10px;
+                border-radius: 50%;
+                width: 90px;
+                height: 90px;
+                background-color: $container--background;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                > :global(.svg-inline--fa)
+                {
+                    width: 55px;
+                    height: 55px;
+                    color: $primary-color;
+                }
+            }
+
+            > .title
+            {
+                margin-bottom: 5px;
+                font-size: 2.125rem;
+            }
+
+            > .subtitle
+            {
+                font-size: 1.125rem;
+            }
+        }
+
+        > .content
+        {
+            padding: 0 $container--padding $container--padding;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+    }
+}
