@@ -14,16 +14,16 @@ script:
 # after_success:
 #     - npx codecov
 
-# before_deploy:
-#     - npm run build:deploy
+before_deploy:
+    - npm run build:deploy
 
-# deploy:
-#     edge: true
-#     provider: pages
-#     token: $GITHUB_DEPLOY_TOKEN
-#     fqdn: 2047.jasonhk.app
-#     local_dir: dist
-#     cleanup: false
-#     on:
-#         node_js: 13
-#         branch: master
+deploy:
+    edge: true
+    provider: pages
+    token: $GITHUB_DEPLOY_TOKEN
+    # fqdn: 2047.jasonhk.app
+    local_dir: dist
+    cleanup: false
+    on:
+        node_js: 13
+        branch: master
