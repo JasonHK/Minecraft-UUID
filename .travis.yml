@@ -15,7 +15,7 @@ script:
 #     - npx codecov
 
 before_deploy:
-    - npm run build:deploy
+    - npm run build:prod
 
 deploy:
     edge: true
